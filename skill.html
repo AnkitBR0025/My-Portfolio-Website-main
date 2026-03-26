@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Portfolio Skills</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        body {
+            background-color: rgb(10, 6, 6);
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* Navigation Styles */
+        .header {
+            display: flex;
+            height: 70px;
+            margin: 10px;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 40px;
+            background-color: rgba(91, 76, 76, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .h1 {
+            color: bisque;
+            font-size: 32px;
+            margin: 0;
+            font-family: 'Gill Sans', sans-serif;
+        }
+
+        .items {
+            display: flex;
+            list-style: none;
+            gap: 10px;
+            padding: 0;
+        }
+
+        button {
+            background-color: wheat;
+            font-weight: bold;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #d0d0ff;
+            transform: translateY(-2px);
+        }
+
+        button a {
+            text-decoration: none;
+            color: black;
+        }
+
+        /* Skills Section Styles */
+        .skills-container {
+            max-width: 1100px;
+            margin: 50px auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 36px;
+            color: bisque;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50%;
+            height: 2px;
+            background: bisque;
+            margin: 10px auto;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+
+        /* Glassmorphism Skill Card */
+        .skill-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            padding: 35px 20px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-10px);
+            border-color: bisque;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .skill-card i {
+            font-size: 55px;
+            margin-bottom: 15px;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-card:hover i {
+            transform: scale(1.1);
+        }
+
+        /* Icon Colors */
+        .fa-html5 {
+            color: #E34F26;
+        }
+
+        .fa-css3-alt {
+            color: #1572B6;
+        }
+
+        .fa-js {
+            color: #F7DF1E;
+        }
+
+        .fa-python {
+            color: #3776AB;
+        }
+
+        .fa-react {
+            color: #61DAFB;
+        }
+
+        .fa-code {
+            color: #FFA116;
+        }
+
+        .fa-git-alt {
+            color: #F05032;
+        }
+
+        .fa-node-js {
+            color: #339933;
+        }
+
+        .fa-terminal {
+            color: #4D4D4D;
+        }
+
+        .fa-database {
+            color: #00758F;
+        }
+
+        .skill-name {
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .status-tag {
+            font-size: 11px;
+            font-weight: bold;
+            background: bisque;
+            color: black;
+            padding: 3px 10px;
+            border-radius: 12px;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            text-transform: uppercase;
+        }
+
+        /* Coding Highlights Section */
+        .highlights-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            background: rgba(255, 228, 196, 0.05);
+            border: 1px dashed rgba(255, 228, 196, 0.3);
+            padding: 40px;
+            border-radius: 25px;
+            margin: 50px 0;
+            gap: 20px;
+        }
+
+        .highlight-item h3 {
+            color: bisque;
+            font-size: 45px;
+            margin: 0;
+        }
+
+        .highlight-item p {
+            color: #aaa;
+            font-size: 14px;
+            margin-top: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .certificates-section {
+            max-width: 1100px;
+            margin: 80px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .certificates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .cert-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: 0.4s ease;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-10px);
+            border-color: bisque;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .cert-image {
+            width: 100%;
+            height: 180px;
+            overflow: hidden;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .cert-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* This keeps the preview neat */
+            transition: 0.5s;
+        }
+
+        .cert-card:hover .cert-image img {
+            transform: scale(1.1);
+        }
+
+        .cert-info {
+            padding: 20px;
+        }
+
+        .cert-info h4 {
+            color: bisque;
+            margin: 0 0 10px 0;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        .cert-info p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .view-btn {
+            display: inline-block;
+            padding: 8px 20px;
+            background-color: wheat;
+            color: black;
+            text-decoration: none;
+            border-radius: 15px;
+            font-weight: bold;
+            font-size: 13px;
+            transition: 0.3s;
+        }
+
+        .view-btn:hover {
+            background-color: white;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: rgb(91, 76, 76);
+            color: bisque;
+            padding: 20px 40px;
+            margin-top: 50px;
+            border-radius: 12px 12px 0 0;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-links a {
+            color: bisque;
+            font-size: 28px;
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px);
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header">
+            <h1 class="h1">Portfolio⟫⟫</h1>
+            <nav>
+                <ul class="items">
+                    <button><a href="index.html">About</a></button>
+                    <button><a href="skill.html">Skills</a></button>
+                    <button><a href="project.html">Projects</a></button>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="skills-container">
+            <h2 class="section-title">Core Technologies</h2>
+
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <span class="status-tag">Advanced</span>
+                    <i class="fab fa-html5"></i>
+                    <div class="skill-name">HTML5</div>
+                </div>
+
+                <div class="skill-card">
+                    <span class="status-tag">Advanced</span>
+                    <i class="fab fa-css3-alt"></i>
+                    <div class="skill-name">CSS3</div>
+                </div>
+
+                <div class="skill-card">
+                    <span class="status-tag">Advanced</span>
+                    <i class="fab fa-js"></i>
+                    <div class="skill-name">JavaScript</div>
+                </div>
+
+                <div class="skill-card">
+                    <span class="status-tag">Intermediate</span>
+                    <i class="fab fa-python"></i>
+                    <div class="skill-name">Python</div>
+                </div>
+
+                <div class="skill-card">
+                    <span class="status-tag">Learning</span>
+                    <i class="fab fa-react"></i>
+                    <div class="skill-name">React JS</div>
+                </div>
+
+                <div class="skill-card">
+                    <span class="status-tag">Active</span>
+                    <i class="fas fa-code"></i>
+                    <div class="skill-name">DSA & LeetCode</div>
+                </div>
+            </div>
+
+            <h2 class="section-title">Tools & Platforms</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <i class="fab fa-git-alt"></i>
+                    <div class="skill-name">Git & GitHub</div>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-terminal"></i>
+                    <div class="skill-name">VS Code</div>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-node-js"></i>
+                    <div class="skill-name">Node.js</div>
+                </div>
+                <!-- <div class="skill-card">
+                    <i class="fas fa-database"></i>
+                    <div class="skill-name">SQL Databases</div>
+                </div> -->
+            </div>
+
+            <div class="highlights-container">
+                <div class="highlight-item">
+                    <h3>80+</h3>
+                    <p>Problems Solved</p>
+                </div>
+                <div class="highlight-item">
+                    <h3>10+</h3>
+                    <p>Projects Built</p>
+                </div>
+
+            </div>
+        </section>
+        <section class="certificates-section">
+            <h2 class="section-title">Certifications</h2>
+            <div class="certificates-grid">
+
+                <div class="cert-card">
+                    <div class="cert-image">
+                        <img src="C:\Users\VC\OneDrive\Pictures\aarambhathon.jpeg" alt="Arambhathon Hackathon">
+                    </div>
+                    <div class="cert-info">
+                        <h4>Hackathon</h4>
+                        <p><strong>Name:</strong> Arambhathon</p>
+                        <a href="C:\Users\VC\OneDrive\Pictures\aarambhathon.jpeg" target="_blank" class="view-btn">View
+                            Certificate</a>
+                    </div>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-image">
+                        <img src="C:\Users\VC\Pictures\Screenshots\Screenshot 2026-02-28 115145.png"
+                            alt="Cyber Security Certificate">
+                    </div>
+                    <div class="cert-info">
+                        <h4>Online Course</h4>
+                        <p><strong>Name:</strong> Cyber Security</p>
+                        <a href="E:\documents##\online certificates\cybersecurity certificate .pdf" target="_blank"
+                            class="view-btn">View PDF</a>
+                    </div>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-image">
+                        <img src="C:\Users\VC\Pictures\Screenshots\Screenshot 2026-02-28 120236.png"
+                            alt="Microsoft Certificate">
+                    </div>
+                    <div class="cert-info">
+                        <h4>Online Course</h4>
+                        <p><strong>Name:</strong> Microsoft</p>
+                        <a href="E:\documents##\online certificates\microsoft 4 certificate.pdf" target="_blank"
+                            class="view-btn">View PDF</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>©2026 Ankit Kumar Pandey | All rights reserved</p>
+            <div class="social-links">
+                <a href="https://www.github.com/AnkitBR0025" target="_blank" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/ankit-pandey25/" target="_blank" title="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="ankitpandey12348409@gmail.com" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+    </footer>
+</body>
+
+</html>

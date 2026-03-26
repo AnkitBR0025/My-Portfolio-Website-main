@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Portfolio of Ankit kumar Pandey</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        body {
+            background-color: rgb(10, 6, 6);
+            color: antiquewhite;
+        }
+
+        .header {
+            display: flex;
+            height: 60px;
+            margin-bottom: 20px;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 40px;
+            background-color: rgb(91, 76, 76);
+            border-radius: 4px;
+        }
+
+        .h1 {
+            color: blanchedalmond;
+            font-size: 50px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        h2 {
+            font-size: 40px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+        .items {
+            display: flex;
+            list-style: disc;
+            gap: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 0;
+        }
+
+        button {
+            background-color: wheat;
+            font-weight: bold;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #d0d0ff;
+            transform: translateY(-2px);
+        }
+
+        button a {
+            text-decoration: none;
+            color: black;
+        }
+
+        button:active {
+            background-color: #007bff;
+            color: white;
+        }
+
+
+
+        .about {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #7d76d7;
+            height: 500px;
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+        .about-text {
+            width: 60%;
+            font-size: x-large;
+            margin: 10px;
+            padding: 10px;
+            color: black;
+        }
+
+        .profile-pic img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-pic {
+            margin-left: 300px;
+            width: 400px;
+            height: 500px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid white;
+        }
+
+        /* 
+        .contact {
+            display: flex;
+            background-color: #7d76d7;
+            height: 300px;
+            border-radius: 10px;
+            padding: 10px;
+            margin-top: 20px;
+        }
+
+        .text {
+            display: flex;
+            background-color: rgb(255, 255, 255);
+            color: black;
+            border-radius: 15px;
+            padding: 10px;
+            width: 60%;
+            margin: 5px;
+        }
+
+        .text1 {
+            background-color: rgb(255, 255, 255);
+            border-radius: 10px;
+        }
+
+        .text1 img {
+            height: 115px;
+            width: 300px;
+        }
+
+        .text2 img {
+            padding: 10px;
+            height: 130px;
+            width: 350px;
+        }
+
+        .contacts {
+            background-color: rgb(255, 255, 255);
+            text-align: center;
+
+            color: black;
+            width: 50%;
+            margin: 5px;
+            border-radius: 50%;
+        }
+
+        .contact a {
+            color: blue;
+
+        }
+
+        .contacts h2 {
+            font-style: oblique;
+            text-decoration: underline;
+        } */
+        /* Container for the whole section */
+        .about-contact-section {
+            max-width: 1100px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        /* Equal height and width for Info Boxes */
+        .info-grid {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .info-card {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            border-color: bisque;
+        }
+
+        .info-content {
+            padding: 30px;
+            flex-grow: 1;
+        }
+
+        .info-content h3 {
+            color: bisque;
+            margin-bottom: 20px;
+        }
+
+        .info-content ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .info-content li {
+            margin-bottom: 12px;
+            color: #ddd;
+            font-size: 15px;
+        }
+
+        /* Symmetrical Images */
+        .info-image {
+            width: 100%;
+            height: 220px;
+            /* Forces both images to this height */
+        }
+
+        .info-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Crops images to fit perfectly without stretching */
+        }
+
+        /* Contact Card Styling */
+        .contact-card {
+            background: rgba(255, 228, 196, 0.05);
+            border: 1px solid rgba(255, 228, 196, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .contact-card h2 {
+            color: bisque;
+            margin-bottom: 30px;
+        }
+
+        .contact-details {
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            margin: 10px 0;
+            font-size: 18px;
+            color: #eee;
+        }
+
+        .contact-item i {
+            color: bisque;
+            margin-right: 10px;
+        }
+
+        .contact-socials {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-btn {
+            padding: 10px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .linkedin {
+            background: #0077b5;
+            color: white;
+        }
+
+        .github {
+            background: #333;
+            color: white;
+        }
+
+        .social-btn:hover {
+            opacity: 0.8;
+            transform: scale(1.05);
+        }
+
+        /* Responsive adjustment for Mobile */
+        @media (max-width: 768px) {
+            .info-grid {
+                flex-direction: column;
+            }
+
+            .contact-socials {
+                flex-direction: column;
+            }
+        }
+
+
+        .footer {
+            background-color: rgb(91, 76, 76);
+            color: bisque;
+            padding: 20px 40px;
+            margin-top: 30px;
+            border-radius: 12px 12px 0 0;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-content p {
+            margin: 0;
+            font-family: 'Gill Sans', sans-serif;
+            font-size: 16px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+
+        }
+
+        .social-links a {
+            color: bisque;
+            font-size: 30px;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px);
+            color: wheat;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <header>
+        <div class="header">
+            <div class="header-div">
+                <h1 class="h1">my portfolio⟫⟫</h1>
+
+            </div>
+
+            <nav class="container">
+                <ul class="items">
+                    <button><a href="index.html">About</a></button>
+                    <button><a href="skill.html">Skills</a></button>
+                    <button><a href="project.html">Projects</a></button>
+                    <button><a href="#contact">Contact</a></button>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="about">
+            <div class="about-text">
+                <h2>About Me</h2>
+                <p>Hello! I am <strong>Ankit kumar Pandey</strong></p>
+                <p>B.Tech Computer Science student at KR Mangalam University, Gurugram, Haryana (2025-2029).</p>
+                <p> Aspiring Full-Stack Developer with a focus on building scalable web applications and conducting
+                    research into emerging, innovative technologies to solve real-world problems</p>
+            </div>
+            <div class="profile-pic">
+                <img src="images/my images2.jpeg">
+
+            </div>
+        </div>
+        <section class="about-contact-section">
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="info-content">
+                        <h3>Why Hire Me?</h3>
+                        <ul>
+                            <li>Quick Learner</li>
+                            <li>Strong problem-solving skills</li>
+                            <li>Passionate about building real world projects</li>
+                            <li>Also interested in AI and Machine learning</li>
+                        </ul>
+                    </div>
+                    <div class="info-image">
+                        <img src="images/Screenshot 2026-03-21 110454.png"
+                            alt="AI Technology">
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-content">
+                        <h3>🔮 Future Goal</h3>
+                        <ul>
+                            <li>🎯 Become Full Stack Developer</li>
+                            <li>🚀 Contribute to Open Source</li>
+                            <li>💼 Get internship in top company</li>
+                        </ul>
+                    </div>
+                    <div class="info-image">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnVZIAcqFl7QgZzdKZ4iGEfLoyLymwkyeFcQ&s"
+                            alt="Coding Goals">
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-card" id="contact">
+                <h2>Let's Connect</h2>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+91-7903486493 / +91-7303146700</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>ankitpandey12348409@gmail.com</span>
+                    </div>
+                </div>
+                <div class="contact-socials">
+                    <a href="https://www.linkedin.com/in/ankit-pandey25/" target="_blank" class="social-btn linkedin">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                    <a href="https://www.github.com/AnkitBR0025" target="_blank" class="social-btn github">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <footer class="footer">
+        <div class="footer-content">
+            <p>©2026 Ankit Kumar Pandey | All rights reserved</p>
+            <div class="social-links">
+                <a href="https://www.github.com/AnkitBR0025" target="_blank" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/ankit-pandey25/" target="_blank" title="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="ankitpandey12348409@gmail.com" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>
